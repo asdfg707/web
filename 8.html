@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Average</title>
+    <style>
+        form{
+            background: white;
+            padding: 40px;
+            border: 1px solid #ccc;
+            width: 350px;
+            margin: auto;
+        }
+       input, button{
+            width: 90%;
+            padding: 8px;
+            margin: 5px;
+        }
+        button{
+            background: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+        function avg() {
+            var t1 = parseFloat(document.getElementById("t1").value); 
+            var t2 = parseFloat(document.getElementById("t2").value); 
+            var t3 = parseFloat(document.getElementById("t3").value); 
+            if ( isNaN(t1) || isNaN(t2) || isNaN(t3)) {
+                return alert("Please fill in all fields with valid values.");
+            }
+            let min = Math.min(t1, t2, t3);
+            let total = t1 + t2 + t3;
+            var average = (total - min) / 2; 
+            alert("Average Marks: " + average);
+        }
+    </script>
+</head>
+<body>
+<form>
+    <h2>Student Marks</h2>
+    <label>Register No : <input type="text" id="reg"></label>
+    <label>Subject Code : <input type="text" id="sub"></label>
+    <label>Test 1 : <input type="text" id="t1"></label>
+    <label>Test 2 : <input type="text" id="t2"></label>
+    <label>Test 3 : <input type="text" id="t3"></label>
+    <button type="button" onclick="avg()">Calculate</button>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Form Validation</title>
+<style>
+    .container{
+        background: white;
+        padding: 40px;
+        border: 1px solid #ccc;
+        width: 350px;
+        margin: auto;
+    }
+
+    input, select, button{
+        width: 90%;
+        padding: 8px;
+        margin: 5px;
+    }
+
+    button{
+        background: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+</style>
+<script>
+    function validateForm() {
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value; 
+        var mobile = document.getElementById("mobile").value; 
+        var gender = document.getElementById("gender").value;
+        var color = document.getElementById("color").value;
+
+        if (name === "") {
+            alert("Please enter your name");
+            return;
+        }
+        if (email === "" ) {
+            alert("Please enter your email");
+            return;
+        }
+        if(!email.includes(".") || !email.includes("@")){ 
+            alert("Enter your email correctly");
+            return;
+        }
+        if (mobile === "" || mobile.length!==10) { 
+            alert("Please enter your mobile number correctly"); 
+            return;
+        }
+        if (gender === "") {
+            alert("Please select your gender");
+            return;
+        }
+        if (color === "") {
+            alert("Please enter your favorite color");
+            return;
+        }
+        alert("Name: " + name +
+          "\nEmail: " + email +
+          "\nMobile: " + mobile +
+          "\nGender: " + gender +
+          "\nColor: " + color);
+    }
+</script>
+</head>
+<body>
+    <div class="container">
+        <h2>Form Validation</h2>
+        <form>
+            <input type="text" id="name" placeholder="Name"><br><br>
+            <input type="email" id="email" placeholder="Email"><br><br>
+            <input type="tel" id="mobile" placeholder="Mobile No"><br><br>
+            <select id="gender">
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select><br><br>
+            <input type="text" id="color" placeholder="Favorite Color"><br><br>
+            <button onclick="validateForm()">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Simple Calculator</title>
+  <style>
+    .calculator {
+      border: 1px solid black;
+      padding: 10px;
+      width: 300px;
+      margin:50px auto;
+    }
+    input {
+      width: 100%;
+      height: 50px;
+      margin-bottom: 10px;
+      font-size: 20px;
+      text-align: right;
+      box-sizing: border-box;
+    }
+    .buttons {
+      display: flex; flex-wrap: wrap;
+    } 
+    button {
+      width: 75px;
+      height: 55px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <input type="text" placeholder="0" readonly>
+    <div class="buttons">
+      <button>AC</button>
+      <button>DEL</button>
+      <button>%</button>
+      <button>/</button>
+
+      <button>7</button>
+      <button>8</button>
+      <button>9</button>
+      <button>*</button>
+
+      <button>4</button>
+      <button>5</button>
+      <button>6</button>
+      <button>-</button>
+
+      <button>1</button>
+      <button>2</button>
+      <button>3</button>
+      <button>+</button>
+      
+      <button>00</button>
+      <button>0</button>
+      <button>.</button>
+      <button>=</button>
+    </div>
+  </div>
+    <script>
+      const input = document.querySelector("input");
+
+      document.querySelectorAll("button").forEach(button => {
+        button.addEventListener("click", () => {
+          const value = button.innerText;
+
+          if (value === "AC") {
+            input.value = "";
+          }
+          else if (value === "DEL") {
+            input.value = input.value.slice(0, -1);
+          }
+          else if (value === "=") {
+            input.value = eval(input.value);
+          }
+          else {
+            input.value += value;
+          }
+        });
+      });
+    </script> 
+</body>
+</html>

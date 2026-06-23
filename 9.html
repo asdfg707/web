@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Registration Page</title>
+<style>
+    .container{
+        background: white;
+        padding: 40px;
+        border: 1px solid #ccc;
+        width: 350px;
+        margin: auto;
+    }
+
+    input, select, button{
+        width: 90%;
+        padding: 8px;
+        margin: 5px;
+    }
+
+    button{
+        background: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+</style>
+<script>
+    function validate() {
+    let userId = document.getElementById("uid").value;
+    let name = document.getElementById("name").value;
+    let password = document.getElementById("pswd").value;
+    let email = document.getElementById("email").value;
+
+    if (userId.length < 5 || userId.length > 12) {
+        alert("User ID must be 5 to 12 characters long");
+        return;
+    }
+    if (name.length < 15 || !/^[A-Za-z ]+$/.test(name)) {
+        alert("Name must contain only alphabets and be at least 15 characters long");
+        return;
+    }
+    if (!/^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()]).{8,}$/.test(password)) {
+        alert("Password must contain at least 8 characters, one uppercase letter, one digit and one special character");
+        return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        alert("Invalid Email Address");
+        return;
+    }
+    alert("Registration Successful!");
+}
+</script>
+</head>
+<body>
+    <div class="container">
+        <h2>Registration Page</h2>
+        <form>
+            <input type="text" id="uid" placeholder="User ID"><br><br>
+            <input type="text" id="name" placeholder="Full Name"><br><br>
+            <input type="password" id="pswd" placeholder="Password"><br><br>
+            <input type="text" id="email" placeholder="Email"><br><br>
+            <button type="button" onclick="validate()">Submit</button>
+        </form>
+    </div>
+</body>
